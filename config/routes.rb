@@ -1,4 +1,9 @@
 ExploreTheWorld::Application.routes.draw do
+
+  root :to => "guides#index"
+
+  resources :guides
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
