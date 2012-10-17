@@ -16,6 +16,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'dynamic_form'
 gem 'jquery-rails'
 
 # Use unicorn as the web server
@@ -28,7 +29,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', :require => false
   gem 'database_cleaner'
   gem 'minitest'
   gem 'turn', :require => false
