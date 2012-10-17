@@ -27,6 +27,7 @@ class GuidesControllerTest < ActionController::TestCase
   end
 
   test "should view list of guides" do
+    pending
     get :show, :id => guides(:croatia)
     # css_select 'title', "Explore the World"
     # css_select 'h2', "Guides"

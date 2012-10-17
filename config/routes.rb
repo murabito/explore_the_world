@@ -2,7 +2,9 @@ ExploreTheWorld::Application.routes.draw do
 
   root :to => "guides#index"
 
-  resources :guides
+  resources :guides do 
+    resources :places
+  end
 
   match '/', :to => "guides#index"
 

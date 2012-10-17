@@ -12,5 +12,9 @@ class UserCreatesNewTravelGuideTest < ActionDispatch::IntegrationTest
   	fill_in :description, with:"2013 trip"
   	click_button "Create Guide"
   	assert current_path == guide_path(Guide.last)
+
+  	click_link "New Place"
+  	fill_in :name, with:"Buenos Aires"
+  	fill_in :description, with:"awesome city"
   end
 end
