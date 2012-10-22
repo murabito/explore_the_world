@@ -1,6 +1,6 @@
-<p><%= link_to "New Guide", new_guide_path %></p>
 <h2>Guides</h2>
-<ul>
+<p><%= link_to "New Guide", new_guide_path %></p>
+<ul class="unstyled">
   <% @guides.each do |guide| %>
     <li><%= link_to guide.name, guide %></li>
   <% end %>

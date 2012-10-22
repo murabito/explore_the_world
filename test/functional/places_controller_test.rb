@@ -17,4 +17,6 @@ class PlacesControllerTest < ActionController::TestCase
     assert_redirected_to guide_place_path(guide, assigns(:place))
     assert_equal 'Place was successfully created.', flash[:notice]
   end
+
+
 end

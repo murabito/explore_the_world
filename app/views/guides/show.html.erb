@@ -1,2 +1,9 @@
 <h2><%= guide_name %></h2>
+<p><%= guide.description %></p>
 <p><%= link_to("New Place", new_guide_place_path(guide)) %><p>
+<ul class="unstyled">
+  <% guide.places.each do |place| %>
+    <li><%= link_to place.name, [guide, place] %></li>
+  <% end %>
+</ul>
+
