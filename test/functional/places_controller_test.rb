@@ -18,5 +18,10 @@ class PlacesControllerTest < ActionController::TestCase
     assert_equal 'Place was successfully created.', flash[:notice]
   end
 
-
+  test "should display error message for non-existing place" do
+    guide = guides(:croatia)
+    get :show, :guide_id => guide.id, :id => "not-here"
+    #assert_nil assigns(:guide)
+    assert_equal 'The place you were looking for could not be found.', flash[:alert]
+  end
 end

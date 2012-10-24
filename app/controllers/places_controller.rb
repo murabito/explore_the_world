@@ -1,5 +1,10 @@
 class PlacesController < ApplicationController
-  helper_method :place
+before_filter :find_place, :only => [ :show,
+                                      :edit,
+                                      :update,
+                                      :destroy ]
+
+  before_filter :find_guide, :only => [ :show, :new ]
 
   def show
   end
@@ -27,7 +32,14 @@ class PlacesController < ApplicationController
 	end
 
 private
-  def place
-    @place ||= Guide.find(params[:guide_id]).places.find_by_id(params[:id])
+  def find_guide
+    @guide = Guide.find(params[:guide_id])
+  end
+
+  def find_place
+    @place ||= Guide.find(params[:guide_id]).places.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The place you were looking for could not be found."
+    redirect_to guide_places_path  
   end  
 end
