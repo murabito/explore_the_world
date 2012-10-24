@@ -20,11 +20,11 @@ class GuidesControllerTest < ActionController::TestCase
     assert assigns(:guide)
   end
 
-  # test "#show should not assign guide for non-existant guide" do
-  #   get :show, :id => 0
-  #   assert_nil assigns(:guide)
-  #   assert_equal 'This guide does not exist.' 
-  # end
+  test "should display error message for non-existing guide" do
+    get :show, :id => "not-here"
+    #assert_nil assigns(:guide)
+    assert_equal 'The guide you were looking for could not be found.', flash[:alert]
+  end
 
   test "should view list of guides" do
     pending

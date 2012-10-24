@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class GuideTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save guide without name" do
+    guide = Guide.new
+    assert !guide.save, "Saved the guide without a name"
+  end
 end

@@ -1,5 +1,8 @@
 class GuidesController < ApplicationController
-  helper_method :guide
+  before_filter :find_guide, :only => [:show,
+                                       :edit,
+                                       :update,
+                                       :destroy]
 
   def index
     @guides = Guide.all
@@ -23,9 +26,14 @@ class GuidesController < ApplicationController
     end
   end
 
+  
+
 
 private
-  def guide
-    @guide ||= Guide.find_by_id(params[:id])
+  def find_guide
+    @guide ||= Guide.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The guide you were looking for could not be found."
+    redirect_to guides_path
   end  
 end

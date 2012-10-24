@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save place without name" do
+    place = Place.new
+    assert !place.save, "Saved the place without a name"
+  end
 end
